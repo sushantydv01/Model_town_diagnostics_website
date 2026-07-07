@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { NAV_LINKS } from "@/constants/navigation";
+import { navigationContent } from "@/content/navigation";
 import { cn } from "@/components/common/Container";
 
 export function Navbar() {
@@ -54,7 +54,7 @@ export function Navbar() {
 
           {/* Desktop Navigation (Center) */}
           <nav className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
+            {navigationContent.public.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
@@ -124,7 +124,7 @@ export function Navbar() {
             </div>
 
             <nav className="flex-1 overflow-y-auto py-6 px-4 flex flex-col gap-4">
-              {NAV_LINKS.map((link) => (
+              {navigationContent.public.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}

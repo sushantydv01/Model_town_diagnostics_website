@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import { FOOTER_LINKS } from "@/constants/navigation";
+import { siteConfig } from "@/config/site";
+import { navigationContent } from "@/content/navigation";
+import { footerContent } from "@/content/footer";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,13 +16,10 @@ export function Footer() {
               to="/"
               className="text-heading-3 text-primary font-bold focus:outline-none focus:ring-2 focus:ring-focus-ring rounded-sm inline-block"
             >
-              Model Town
-              <br />
-              Diagnostics
+              {siteConfig.name}
             </Link>
             <p className="text-body text-text-secondary max-w-xs">
-              Providing premium pathology and diagnostic services with a
-              commitment to accuracy and patient care.
+              {footerContent.brandDescription}
             </p>
           </div>
 
@@ -30,7 +29,7 @@ export function Footer() {
               About Us
             </h3>
             <ul className="flex flex-col gap-3">
-              {FOOTER_LINKS.about.map((link) => (
+              {navigationContent.footer.about.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.path}
@@ -49,7 +48,7 @@ export function Footer() {
               Quick Links
             </h3>
             <ul className="flex flex-col gap-3">
-              {FOOTER_LINKS.quickLinks.map((link) => (
+              {navigationContent.footer.quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.path}
@@ -68,7 +67,7 @@ export function Footer() {
               Contact
             </h3>
             <ul className="flex flex-col gap-3 mb-4">
-              {FOOTER_LINKS.contact.map((link) => (
+              {navigationContent.footer.contact.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.path}
@@ -81,7 +80,7 @@ export function Footer() {
             </ul>
             <div className="flex gap-4">
               {/* Social placeholders */}
-              {FOOTER_LINKS.socials.map((social) => (
+              {navigationContent.footer.socials.map((social) => (
                 <a
                   key={social.label}
                   href={social.path}
@@ -97,21 +96,18 @@ export function Footer() {
 
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-small text-text-muted">
-            &copy; {currentYear} Model Town Diagnostics. All rights reserved.
+            {footerContent.copyright.replace("{year}", currentYear.toString())}
           </p>
           <div className="flex gap-6">
-            <Link
-              to="/privacy"
-              className="text-small text-text-muted hover:text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring rounded-sm"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              to="/terms"
-              className="text-small text-text-muted hover:text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring rounded-sm"
-            >
-              Terms of Service
-            </Link>
+            {footerContent.legalLinks.map((link) => (
+              <Link
+                key={link.label}
+                to={link.path}
+                className="text-small text-text-muted hover:text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring rounded-sm"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
