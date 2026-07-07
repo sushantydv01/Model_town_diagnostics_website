@@ -1,1 +1,208 @@
 @import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-background: var(--color-bg);
+  --color-surface: var(--color-sfc);
+  --color-surface-elevated: var(--color-sfc-elevated);
+
+  --color-primary: var(--color-pri);
+  --color-primary-hover: var(--color-pri-hover);
+  --color-primary-soft: var(--color-pri-soft);
+
+  --color-text-primary: var(--color-txt-primary);
+  --color-text-secondary: var(--color-txt-secondary);
+  --color-text-muted: var(--color-txt-muted);
+
+  --color-border: var(--color-bdr);
+  --color-border-strong: var(--color-bdr-strong);
+
+  --color-success: var(--color-suc);
+  --color-warning: var(--color-warn);
+  --color-error: var(--color-err);
+  --color-info: var(--color-inf);
+
+  --color-disabled: var(--color-dis);
+  --color-overlay: var(--color-ovr);
+  --color-focus-ring: var(--color-focus);
+
+  /* Typography Families */
+  --font-sans: 'Geist', 'Inter', system-ui, sans-serif;
+
+  /* Typography Scales */
+  --text-display: 3.5rem;
+  --text-display--line-height: 1.1;
+  --text-display--font-weight: 700;
+
+  --text-heading-1: 2.5rem;
+  --text-heading-1--line-height: 1.2;
+  --text-heading-1--font-weight: 700;
+
+  --text-heading-2: 2rem;
+  --text-heading-2--line-height: 1.2;
+  --text-heading-2--font-weight: 600;
+
+  --text-heading-3: 1.5rem;
+  --text-heading-3--line-height: 1.3;
+  --text-heading-3--font-weight: 600;
+
+  --text-heading-4: 1.25rem;
+  --text-heading-4--line-height: 1.4;
+  --text-heading-4--font-weight: 500;
+
+  --text-body-large: 1.125rem;
+  --text-body-large--line-height: 1.5;
+  --text-body-large--font-weight: 400;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.5;
+  --text-body--font-weight: 400;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+  --text-small--font-weight: 400;
+
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--font-weight: 400;
+
+  --text-label: 0.875rem;
+  --text-label--line-height: 1;
+  --text-label--font-weight: 500;
+
+  --text-button: 1rem;
+  --text-button--line-height: 1;
+  --text-button--font-weight: 500;
+
+  /* Spacing Scale (Adding explicit semantics for missing tailwind default gaps) */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-96: 96px;
+  --spacing-128: 128px;
+
+  /* Form & Component Spacings */
+  --spacing-input: 12px;
+  --spacing-label: 8px;
+  --spacing-validation: 4px;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-surface: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-raised: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -1px rgba(15, 23, 42, 0.06);
+  --shadow-floating: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+  --shadow-overlay: 0 20px 25px -5px rgba(15, 23, 42, 0.15), 0 10px 10px -5px rgba(15, 23, 42, 0.05);
+  --shadow-soft: 0 2px 4px rgba(15, 23, 42, 0.03);
+
+  /* Motion - Durations */
+  --animate-fast: 150ms;
+  --animate-normal: 300ms;
+  --animate-slow: 500ms;
+
+  /* Motion - Easings */
+  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-enter: cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0.0, 1, 1);
+  --ease-hover: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  /* Containers */
+  --container-reading: 760px;
+  --container-default: 1280px;
+  --container-dashboard: 1440px;
+  --container-full: 100%;
+
+  /* Z-Index */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+
+  /* Icons */
+  --icon-xs: 16px;
+  --icon-sm: 20px;
+  --icon-md: 24px;
+  --icon-lg: 32px;
+  --icon-xl: 48px;
+
+  /* Forms */
+  --height-input: 48px;
+  --height-button: 44px;
+}
+
+@layer base {
+  :root {
+    /* Light Theme (Default) */
+    --color-bg: #F8FAFC;
+    --color-sfc: #FFFFFF;
+    --color-sfc-elevated: #F1F5F9;
+
+    --color-pri: #0F766E;
+    --color-pri-hover: #115E59;
+    --color-pri-soft: #CCFBF1;
+
+    --color-txt-primary: #0F172A;
+    --color-txt-secondary: #475569;
+    --color-txt-muted: #94A3B8;
+
+    --color-bdr: #E2E8F0;
+    --color-bdr-strong: #CBD5E1;
+
+    --color-suc: #16A34A;
+    --color-warn: #D97706;
+    --color-err: #DC2626;
+    --color-inf: #3B82F6;
+
+    --color-dis: #94A3B8;
+    --color-ovr: rgba(15, 23, 42, 0.4);
+    --color-focus: rgba(15, 118, 110, 0.5);
+  }
+
+  .dark {
+    /* Dark Theme */
+    --color-bg: #0F172A;
+    --color-sfc: #1E293B;
+    --color-sfc-elevated: #334155;
+
+    --color-pri: #14B8A6; /* Adjusted for dark mode contrast */
+    --color-pri-hover: #0D9488;
+    --color-pri-soft: #134E4A;
+
+    --color-txt-primary: #F8FAFC;
+    --color-txt-secondary: #CBD5E1;
+    --color-txt-muted: #64748B;
+
+    --color-bdr: #334155;
+    --color-bdr-strong: #475569;
+
+    --color-suc: #22C55E;
+    --color-warn: #F59E0B;
+    --color-err: #EF4444;
+    --color-inf: #60A5FA;
+
+    --color-dis: #475569;
+    --color-ovr: rgba(15, 23, 42, 0.7);
+    --color-focus: rgba(20, 184, 166, 0.5);
+  }
+
+  /* Base elements */
+  body {
+    @apply bg-background text-text-primary font-sans antialiased;
+  }
+}
