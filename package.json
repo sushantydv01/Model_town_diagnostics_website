@@ -1,0 +1,25 @@
+{
+  "name": "model-town-diagnostics",
+  "version": "1.0.0",
+  "description": "## Project Overview Model Town Diagnostics is a pathology collection centre web application designed to support a test catalogue, packages, appointment booking, home collection, online payments, and dashboards for both patients and lab technicians.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^10.6.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.9.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
